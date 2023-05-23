@@ -24,5 +24,6 @@ Finally, he encouraged them to stay hungry and stay foolish.
 ```
 
 ### WIP:
-1. Longer videos with more tokens (Possible solutions: 1. use a tokenizer based workaround for multiple calls or 2. try using GPT-4 APIs)
+1. Longer videos with more tokens
+	- Possible solutions: use a tokenizer based workaround for multiple calls or try using GPT-4 APIs)
 2. Non-English videos
