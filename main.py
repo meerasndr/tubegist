@@ -1,12 +1,14 @@
 import os
+import sys
 from dotenv import load_dotenv
-load_dotenv()
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+from youtube_transcript_api import YouTubeTranscriptApi
+import yt_dlp as youtube_dl
 from langchain.llms import OpenAI
 from langchain import PromptTemplate
 from langchain import LLMChain
-from youtube_transcript_api import YouTubeTranscriptApi
-import yt_dlp as youtube_dl
+
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 def get_title_id(url):
 	options = {}
@@ -23,7 +25,11 @@ def get_transcript(video_id):
 		transcript_text += item['text']	
 	return transcript_text
 
-video_title, video_id = get_title_id('https://www.youtube.com/watch?v=UF8uR6Z6KLc')
+try:
+	video_title, video_id = get_title_id(sys.argv[1])
+except:
+	print("Enter the YouTube video URL as an argument: `python main.py [video_url]`")
+	exit(0)
 template = "Can you summarize {this}?"
 llm = OpenAI(model_name="text-davinci-003")
 prompt = PromptTemplate(template=template, input_variables=['this'])
