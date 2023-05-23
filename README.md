@@ -4,6 +4,7 @@ Summarizes YouTube videos based on YouTube generated transcripts and OpenAI's GP
 
 ### Example:
 Summarizing [Steve Jobs' Stanford commencement speech](https://www.youtube.com/watch?v=UF8uR6Z6KLc) here:
+
 `python3 main.py https://www.youtube.com/watch?v=UF8uR6Z6KLc`
 
 One possible output:
