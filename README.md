@@ -2,6 +2,9 @@
 
 Summarizes YouTube videos based on YouTube generated transcripts and OpenAI's GPT API.
 
+### Screen-grab
+![](https://github.com/meerasndr/tubegist/blob/main/gist1.gif)
+
 ### Example:
 Summarizing [Steve Jobs' Stanford commencement speech](https://www.youtube.com/watch?v=UF8uR6Z6KLc) here:
 
