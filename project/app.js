@@ -2,6 +2,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const urlInput = document.getElementById('urlInput').value;
+    const resultDiv = document.getElementById('result');
 
     fetch(`http://0.0.0.0:8000/video_url/?url=${urlInput}`, {
         method: 'POST',
@@ -14,12 +15,12 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
         return response.json();
     })
     .then(function(data) {
-        const resultDiv = document.getElementById('result');
         console.log(data.message)
-        resultDiv.textContent = 'Result: ' + data.message;
+        resultDiv.innerHTML = "<b>Here is the gist of the video:</b> <br>" + data.message;
     })
     .catch(function(error) {
         console.error('Error:', error);
+        resultDiv.textContent = "Server Error. Try again later!"
     });
 });
 
